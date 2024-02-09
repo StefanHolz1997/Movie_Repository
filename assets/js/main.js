@@ -2,7 +2,7 @@
 // * values von Form deklarieren (auslesen)
 const moviesOuput = document.querySelector(".movieTable");
 let allMovies = movies;
-
+let genre;
 const moviesAll = movies.map((movieInfos) => {
   return (moviesOuput.innerHTML += `<div class="movieBox">
     <h3>${movieInfos[0]}</h3>
@@ -16,12 +16,13 @@ const moviesAll = movies.map((movieInfos) => {
 
 function showMovies(array) {
   array.map((movieInfos) => {
+    const genre = movieInfos[4].join(`<br>`);
     return (moviesOuput.innerHTML += `<div class="movieBox">
           <h3>${movieInfos[0]}</h3> 
           <p>${movieInfos[1]}</p>
           <h4>${movieInfos[2]}</h4>
           <p>${movieInfos[3]}</p>
-          <p>${movieInfos[4].map((genre) => genre).join(`<br>`)}</p>
+          <p>${genre}</p>
           <p>${movieInfos[5]}</p>
         </div>`);
   });
@@ -29,16 +30,15 @@ function showMovies(array) {
 
 function search() {
   const searchBar = document.querySelector("#searchbar").value.toLowerCase();
-  //   allMovies = movies.filter((titel) => {
-  //     return titel[0].toLowerCase().includes(searchBar);
-  //   });
+
   allMovies = movies.filter(
     (movie) =>
       movie[0].toLowerCase().includes(searchBar.toLowerCase()) ||
       movie[1] === searchBar ||
       movie[2].toLowerCase().includes(searchBar.toLowerCase()) ||
       movie[3].toLowerCase().includes(searchBar.toLowerCase()) ||
-      movie[4].map().toLowerCase().includes(searchBar.toLowerCase()) ||
+      movie[3].toLowerCase().includes(searchBar.toLowerCase()) ||
+      movie[4].join().toLowerCase().includes(searchBar.toLowerCase()) ||
       movie[5] === searchBar
   );
   moviesOuput.innerHTML = "";
