@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="wraper">
+      <header>
+        <h2>Movies for You</h2>
+        <h1>The best MovieDB</h1>
+        <form>
+          <div class="search">
+            <input type="text" name="" id="searchbar" />
+            <input
+              onclick="search()"
+              id="searchBtn"
+              type="button"
+              value="SEARCH"
+            />
+          </div>
+          <div class="filter">
+            <input onclick="Up()" id="yearUp" type="button" value="YEAR UP" />
+            <input
+              onclick="Down()"
+              id="yearDown"
+              type="button"
+              value="YEAR DOWN"
+            />
+            <input
+              onclick="Rate()"
+              id="bestRate"
+              type="button"
+              value="BEST RATE"
+            />
+          </div>
+        </form>
+      </header>
+      <main>
+        <article class="movieTable"></article>
+      </main>
+      <script src="./assets/js/second.js"></script>
+      <script src="./assets/js/main.js"></script>
+    </div>
+  </body>
+</html>
